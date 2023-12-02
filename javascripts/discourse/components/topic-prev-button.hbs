@@ -1,0 +1,5 @@
+{{#if this.showButton}}
+<span class="topic-prev" >
+  <DButton class="topic-prev-button" @action={{this.goToPrevTopic}} @icon="chevron-left" @label={{if this.site.desktopView (theme-prefix "topic_prev_label")}} />
+</span>
+{{/if}}
