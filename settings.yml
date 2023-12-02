@@ -8,4 +8,4 @@ topic_next_categories:
   list_type: category
   default: ""
   description:
-    en: "The categories that will include the Topic Next button.  Leave blank for all"
+    en: "The categories that will include the Topic Next and Previous buttons.  Leave blank for all"
