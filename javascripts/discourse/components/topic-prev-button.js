@@ -28,7 +28,7 @@ export default class TopicPrevButton extends Component {
   };
 
   get goFirst() {
-    return settings.topic_prev_always_go_to_first_post
+    return settings.topic_next_always_go_to_first_post
   }
 
   @action
