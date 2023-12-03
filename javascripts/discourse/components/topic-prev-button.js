@@ -32,12 +32,12 @@ export default class TopicPreviousButton extends Component {
   }
 
   @action
-  goToPreviousTopic() {
+  goToNextTopic() {
     let url;
-    if (this.previousURL) {
+    if (this.nextURL) {
       url = this.goFirst
-        ? this.previousURL.substring(0, this.previousURL.document.referrer)
-        : this.previousURL;
+        ? this.nextURL.substring(0, this.nextURL.lastIndexOf("/"))
+        : this.nextURL;
       DiscourseURL.routeTo(url);
     }
   };
