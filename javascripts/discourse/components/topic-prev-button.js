@@ -8,7 +8,7 @@ import {
 import DiscourseURL from "discourse/lib/url";
 import { inject as service } from "@ember/service";
 
-export default class TopicPrevButton extends Component {
+export default class TopicPreviousButton extends Component {
   @service site;
   @tracked label = "";
   @tracked showButton = false;
