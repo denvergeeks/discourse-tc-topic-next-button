@@ -2,27 +2,27 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import {
-  prevTopicUrl,
   nextTopicUrl,
+  previousTopicUrl,
 } from "discourse/lib/topic-list-tracker";
 import DiscourseURL from "discourse/lib/url";
 import { inject as service } from "@ember/service";
 
-export default class TopicPrevButton extends Component {
+export default class TopicNextButton extends Component {
   @service site;
   @tracked label = "";
   @tracked showButton = false;
-  @tracked prevURL = "";
+  @tracked nextURL = "";
 
   constructor(owner, args) {
     super(owner, args);
-    prevTopicUrl().then((url) => {
+    nextTopicUrl().then((url) => {
       if (url) {
         this.showButton = true;
-        this.prevURL = url;
+        this.nextURL = url;
       } else {
         this.showButton = false;
-        this.prevURL = "";
+        this.nextURL = "";
       }
     })
   };
