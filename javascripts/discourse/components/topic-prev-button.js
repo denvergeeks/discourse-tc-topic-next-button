@@ -36,7 +36,7 @@ export default class TopicPrevButton extends Component {
     let url;
     if (this.prevURL) {
       url = this.goFirst
-        ? this.nextURL.substring(0, this.prevURL.lastIndexOf("/"))
+        ? this.prevURL.substring(0, this.prevURL.firstIndexOf("/"))
         : this.prevURL;
       DiscourseURL.routeTo(url);
     }
