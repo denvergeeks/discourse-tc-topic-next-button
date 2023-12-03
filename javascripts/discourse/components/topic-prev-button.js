@@ -2,27 +2,27 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import {
-  nextTopicUrl,
   previousTopicUrl,
+  nextTopicUrl,
 } from "discourse/lib/topic-list-tracker";
 import DiscourseURL from "discourse/lib/url";
 import { inject as service } from "@ember/service";
 
-export default class TopicNextButton extends Component {
+export default class TopicPrevButton extends Component {
   @service site;
   @tracked label = "";
   @tracked showButton = false;
-  @tracked nextURL = "";
+  @tracked previousURL = "";
 
   constructor(owner, args) {
     super(owner, args);
-    nextTopicUrl().then((url) => {
+    previousTopicUrl().then((url) => {
       if (url) {
         this.showButton = true;
-        this.nextURL = url;
+        this.previousURL = url;
       } else {
         this.showButton = false;
-        this.nextURL = "";
+        this.previousURL = "";
       }
     })
   };
@@ -32,12 +32,12 @@ export default class TopicNextButton extends Component {
   }
 
   @action
-  goToNextTopic() {
+  goToPreviousTopic() {
     let url;
-    if (this.nextURL) {
+    if (this.previousURL) {
       url = this.goFirst
-        ? this.nextURL.substring(0, this.nextURL.lastIndexOf("/"))
-        : this.nextURL;
+        ? this.previousURL.substring(0, this.previousURL.lastIndexOf("/"))
+        : this.previousURL;
       DiscourseURL.routeTo(url);
     }
   };
