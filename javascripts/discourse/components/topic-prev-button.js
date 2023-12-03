@@ -2,8 +2,8 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import {
-  previousTopicUrl,
   nextTopicUrl,
+  previousTopicUrl,
 } from "discourse/lib/topic-list-tracker";
 import DiscourseURL from "discourse/lib/url";
 import { inject as service } from "@ember/service";
