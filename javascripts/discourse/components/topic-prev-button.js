@@ -12,17 +12,17 @@ export default class TopicPreviousButton extends Component {
   @service site;
   @tracked label = "";
   @tracked showButton = false;
-  @tracked previousURL = "";
+  @tracked lastURL = "";
 
   constructor(owner, args) {
     super(owner, args);
     previousTopicUrl().then((url) => {
       if (url) {
         this.showButton = true;
-        this.previousURL = url;
+        this.lastURL = url;
       } else {
         this.showButton = false;
-        this.previousURL = "";
+        this.lastURL = "";
       }
     })
   };
@@ -34,10 +34,10 @@ export default class TopicPreviousButton extends Component {
   @action
   goToPreviousTopic() {
     let url;
-    if (this.previousURL) {
+    if (this.lastURL) {
       url = this.goFirst
-        ? this.previousURL.substring(0, this.previousURL.lastIndexOf("/"))
-        : this.previousURL;
+        ? this.previousURL.substring(0, this.lastURL.lastIndexOf("/"))
+        : this.lastURL;
       DiscourseURL.routeTo(url);
     }
   };
